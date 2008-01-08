@@ -4,11 +4,12 @@
 Summary:	Monobook template for DokuWiki
 Name:		dokuwiki-tpl-%{_tpl}
 Version:	%{_ver}
-Release:	0.1
+Release:	0.2
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://tatewake.com/wiki/_media/projects:monobook-%{_snap}.zip
 # Source0-md5:	69f0dfd21dc921f86be4fd9f8ec9ea4f
+Source1:	dokuwiki-find-lang.sh
 URL:		http://tatewake.com/wiki/projects:monobook_for_dokuwiki
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	dokuwiki >= 20070626
@@ -39,10 +40,22 @@ install -d $RPM_BUILD_ROOT%{_tpldir}
 cp -a . $RPM_BUILD_ROOT%{_tpldir}
 rm -f $RPM_BUILD_ROOT%{_tpldir}/{INSTALL,README}
 
+# find locales
+sh %{SOURCE1} %{name}.lang
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc INSTALL README
-%{_tpldir}
+%dir %{_tpldir}
+%{_tpldir}/*.php
+%{_tpldir}/style.ini
+%{_tpldir}/common
+%{_tpldir}/conf
+%{_tpldir}/dokuwiki
+%{_tpldir}/monobook
+%{_tpldir}/user
+# TODO: lang dirs inside. check if these can be also rpm lang tagged
+%{_tpldir}/wikipedia
