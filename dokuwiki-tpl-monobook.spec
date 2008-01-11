@@ -2,6 +2,7 @@
 %define		_ver	%(echo %{_snap} | sed -e 's,\\(..\\)\\(..\\)\\(....\\),\\3\\1\\2,')
 %define		_tpl	monobook
 Summary:	Monobook template for DokuWiki
+Summary(pl.UTF-8):	Szablon Monobook dla DokuWiki
 Name:		dokuwiki-tpl-%{_tpl}
 Version:	%{_ver}
 Release:	0.2
@@ -23,6 +24,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Gives DokuWiki the Wikipedia/Mediawiki look and feel, as well as more
 functionality. Includes discussions without using a plugin and the
 navigation can be edited like a wiki page.
+
+%description -l pl.UTF-8
+Ten szablon nadaje DokuWiki wygląd i zachowanie Wikipedii/Mediawiki, a
+także trochę większą funkcjonalność. Zawiera dyskusje bez użycia
+osobnej wtyczki, a nawigację można modyfikować podobnie jak stronę
+wiki.
 
 %prep
 %setup -q -n %{_tpl}
