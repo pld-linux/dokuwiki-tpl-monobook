@@ -5,7 +5,7 @@ Summary:	Monobook template for DokuWiki
 Summary(pl.UTF-8):	Szablon Monobook dla DokuWiki
 Name:		dokuwiki-tpl-%{_tpl}
 Version:	%{_ver}
-Release:	0.2
+Release:	1
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://tatewake.com/wiki/_media/projects:monobook-%{_snap}.zip
