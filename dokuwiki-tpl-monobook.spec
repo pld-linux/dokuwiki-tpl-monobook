@@ -1,5 +1,5 @@
-%define		_snap	07202007
-%define		_ver	%(echo %{_snap} | sed -e 's,\\(..\\)\\(..\\)\\(....\\),\\3\\1\\2,')
+%define		_snap	2008-07-30
+%define		_ver	%(echo %{_snap} | tr -d -)
 %define		tpl	monobook
 Summary:	Monobook template for DokuWiki
 Summary(pl.UTF-8):	Szablon Monobook dla DokuWiki
@@ -8,12 +8,12 @@ Version:	%{_ver}
 Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-Source0:	http://tatewake.com/wiki/_media/projects:monobook-%{_snap}.zip
-# Source0-md5:	69f0dfd21dc921f86be4fd9f8ec9ea4f
+Source0:	http://tatewake.com/wiki/_media/projects:monobook-%{_snap}.tar.bz2
+# Source0-md5:	35608ad64b14c0ac2f61c0477609e3ab
 Source1:	dokuwiki-find-lang.sh
 URL:		http://tatewake.com/wiki/projects:monobook_for_dokuwiki
 BuildRequires:	rpmbuild(macros) >= 1.268
-Requires:	dokuwiki >= 20070626
+Requires:	dokuwiki >= 20080505
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
